@@ -1,0 +1,101 @@
+<div class="text-layout">
+ <h1>Pipes Básicos</h1>
+ <p>
+  Pipes incluidos en Angular - usalmente en el Common Module.
+ </p>
+</div>
+
+ <div class="grid">
+    <div class="col-12 sm:col-4">
+      <p-card
+            header = 'Uppercase'
+            [subheader] = "nombreLower | uppercase"
+            >
+          {{ nombreLower | uppercase }}
+       </p-card>
+    </div>
+    <div class="col-12 sm:col-4">
+      <p-card
+            header = 'Lowercase'
+            [subheader] = "nombreUpper | lowercase"
+            >
+          {{ nombreUpper | lowercase }}
+       </p-card>
+    </div>
+    <div class="col-12 sm:col-4">
+          <p-card
+               header = 'TitleCase'
+              [subheader] = "nombreCompleto | titlecase"
+          >
+               {{ nombreCompleto | titlecase }}
+        </p-card>
+    </div>
+  </div>
+
+
+  <div class="text-layout ">
+    <h1>Date | Fecha | Pipe</h1>
+    <p>
+      Pipe para mostrar las fechas.
+    </p>
+  </div>
+
+  <div class="grid">
+    <div class="col-12 lg:col-6 lg:col-offset-3  ">
+
+        <p-card header="Para cambiar el idioma en el pipe de la fecha hay que importar el locale en app.module.ts">
+           <ul>
+              <li>{{"import localeEs from '@angular/common/locales/es'"}}</li>
+              <li>{{"import localeFr from '@angular/common/locales/fr'"}}</li>
+              <li>{{"import { registerLocaleData } from '@angular/common'"}}</li>
+              <li>{{"registerLocaleData( localeEs )"}}</li>
+              <li>{{"registerLocaleData( localeFr )"}}</li><br><br>
+              <li>{{" providers: [
+                { provide : LOCALE_ID, useValue: 'es'}
+              ],  ----  con esta linea hacemos que sea a nivel global de la app el español"}}</li>
+              </ul>
+          </p-card>
+    </div>
+  </div>
+
+<hr>
+  <div class="grid">
+    <div class="col-12 sm:col-6">
+      <p-card>
+          <ul>
+            <li>fecha</li>
+            <li>fecha | date</li>
+            <li>fecha | date:'short' </li>
+            <li>fecha | date:'long' </li>
+            <li>fecha | date:'date:'cccc d MMMM - HH:mm' </li>
+            <hr>
+            <li>fecha | date:'long':'GMT-1'</li>
+            <li>fecha | date:'long':'':'en'</li>
+            <li>fecha | date:'date:'cccc d MMMM - HH:mm':'':'en' * en Inglés </li>
+            <li>fecha | date:'date:'cccc d MMMM - HH:mm':'':'fr' * en Francés </li>
+          </ul>
+      </p-card>
+    </div>
+    <div class="col-12 sm:col-6">
+      <p-card>
+        <ul>
+          <li>{{ fecha }}</li>
+          <li>{{ fecha | date}}</li>
+          <li>{{ fecha | date:'short'}}</li>
+          <li>{{ fecha | date:'long'}}</li>
+          <li>{{ fecha | date:'cccc d  MMMM - HH:mm'}}</li>
+          <hr>
+          <li>{{ fecha | date:'long':'GMT-1'}}</li>
+          <li>{{ fecha | date:'long':'':'en'}}</li>
+          <li>{{ fecha | date:'cccc d  MMMM - HH:mm':'':'en'}}</li>
+          <li>{{ fecha | date:'cccc d  MMMM - HH:mm':'':'fr'}}</li>
+
+        </ul>
+      </p-card>
+    </div>
+
+  </div>
+
+
+
+
