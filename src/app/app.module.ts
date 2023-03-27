@@ -13,6 +13,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import localeEs from '@angular/common/locales/es';
 import localeFr from '@angular/common/locales/fr';
 import { registerLocaleData } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 registerLocaleData( localeEs );
 registerLocaleData( localeFr );
 
@@ -26,7 +27,8 @@ registerLocaleData( localeFr );
     AppRouterModule,
     SharedModule,
     VentasModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
 
 
 

@@ -1,1 +1,89 @@
-<p>ordenar works!</p>
+
+
+<div class="text-layout">
+  <h1>Pipes Personalizados</h1>
+  <p>
+   Pipes creados por {{ "nosotros" | mayusculas : enMayusculas }}.
+  </p>
+
+ </div>
+
+ <p-toolbar>
+  <div class="p-toolbar-group-start"></div>
+  <div class="p-toolbar-group-end">
+    <p-button
+        class="mr-2"
+        styleClass="p-button-warning"
+        (click)="toggleMay()"
+        label="Shift"
+        icon="pi pi-arrow-up"
+        iconPos="right"
+
+           ></p-button>
+    <p-button
+       icon="pi pi-sort"
+       label="Por nombre"
+       class="mr-2"
+       (click)="ordenarPor('nombre')"
+            ></p-button>
+    <p-button
+       icon="pi pi-sort"
+       label="Vuela"
+       class="mr-2"
+       styleClass="p-button-success"
+       (click)="ordenarPor('vuela')"
+               ></p-button>
+    <p-button
+       icon="pi pi-sort"
+       label="Por color"
+       class="mr-2"
+       styleClass="p-button-help"
+       (click)="ordenarPor('color')"
+               ></p-button>
+
+  </div>
+</p-toolbar>
+
+<div class="grid">
+  <div class="col mt-2">
+      <p-table [value] = "heroes | ordenar:valorOrdenar" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Nombre</th>
+                <th>¿Vuela?</th>
+                <th>Color</th>
+
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-heroe>
+            <tr>
+                <td>{{ heroe.nombre }}</td>
+                <td>{{ heroe.vuela | vuela | titlecase }}</td>
+                <td>{{ heroe.color | color}}</td>
+            </tr>
+        </ng-template>
+      </p-table>
+  </div>
+</div>
+<h1 class="text-layout">The Rick and Morty API</h1>
+<p-table [value] = characters [tableStyle]="{'min-width': '60rem'}" [paginator]="true" [rowsPerPageOptions]="[3,6]"[rows]="3">
+  <ng-template pTemplate="header">
+      <tr>
+          <th pSortableColumn="name" style="width:20%">Nombre <p-sortIcon field="name"></p-sortIcon></th>
+          <th pSortableColumn="status" style="width:20%">Status <p-sortIcon field="status"></p-sortIcon></th>
+          <th pSortableColumn="species" style="width:20%">Species <p-sortIcon field="species"></p-sortIcon></th>
+          <th pSortableColumn="image" style="width:10%">Image</th>
+
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-character>
+      <tr>
+          <td>{{character.name}}</td>
+          <td>{{character.status}}</td>
+          <td>{{character.species}}</td>
+          <td><img style="width: 40px;" [src]="character.image"/></td>
+      </tr>
+  </ng-template>
+</p-table>
+
+

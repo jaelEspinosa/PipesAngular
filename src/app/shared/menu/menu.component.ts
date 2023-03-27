@@ -40,15 +40,10 @@ export class MenuComponent implements OnInit {
       {
         label: 'Pipes personalizados',
         icon: 'pi pi-cog',
+        routerLink: 'ordenar'
 
 
-      }/* ,
-      {
-        label: 'About JaelEspinosa',
-        icon: 'pi pi-android',
-
-
-      } */
+      }
     ];
   }
 
